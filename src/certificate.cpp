@@ -190,7 +190,8 @@ certificate_ptr make_certificate_impl(string commonName) {
 	if (!x509 || !pkey || !rsa || !exponent || !serial_number || !name)
 		throw std::runtime_error("Unable allocate structures for certificate generation");
 
-	const int bits = 4096;
+	//const int bits = 4096;
+	const int bits = 2048;
 	const unsigned int e = 65537; // 2^16 + 1
 
 	if (!pkey || !rsa || !exponent || !BN_set_word(exponent.get(), e) ||
